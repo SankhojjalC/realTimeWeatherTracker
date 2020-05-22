@@ -1,2 +1,6 @@
-# realTimeWeatherTracker
-Real Time Weather Tracker Application.
+## Setup
+```
+>>>npm install
+
+>>> npm start
+```
