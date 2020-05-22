@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import apiKeys from "./apiKeys";
+import apiKeys from "../apiKeys";
 import ReactAnimatedWeather from "react-animated-weather";
 
 class SearchLocation extends Component {

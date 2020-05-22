@@ -1,5 +1,5 @@
 import React from "react";
-import CurrentLocation from "./CurrentLocation.jsx";
+import CurrentLocation from "./Components/CurrentLocation";
 import "./App.css";
 
 function App() {

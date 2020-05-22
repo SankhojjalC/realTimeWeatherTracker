@@ -1,12 +1,12 @@
 import React from "react";
-import apiKeys from "./apiKeys";
+import apiKeys from "../apiKeys";
 import Clock from "react-live-clock";
-import Forcast from "./SearchLocation.jsx";
-import loader from "./images/WeatherIcons.gif";
+import SearchLocation from "./SearchLocation.jsx";
+import loader from "../images/WeatherIcons.gif";
 import ReactAnimatedWeather from "react-animated-weather";
 const dateBuilder = (d) => {
   let months = [
-    "January",
+    "January",  
     "February",
     "March",
     "April",
@@ -185,7 +185,7 @@ class CurrentLocation extends React.Component {
               </div>
             </div>
           </div>
-          <Forcast icon={this.state.icon} weather={this.state.main} />
+          <SearchLocation icon={this.state.icon} weather={this.state.main} />
         </React.Fragment>
       );
     } else {
