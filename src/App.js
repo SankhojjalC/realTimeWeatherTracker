@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import CurrentLocation from "./currentLocation";
-import cities from "cities.json";
+import React from "react";
+import CurrentLocation from "./CurrentLocation.jsx";
 import "./App.css";
 
 function App() {
   return (
     <React.Fragment>
       <div className="container">
-        {console.log(cities)}
         <CurrentLocation />
       </div>
       <div className="footer-info">

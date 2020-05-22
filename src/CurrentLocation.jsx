@@ -1,7 +1,7 @@
 import React from "react";
 import apiKeys from "./apiKeys";
 import Clock from "react-live-clock";
-import Forcast1 from "./forcast1";
+import Forcast from "./SearchLocation.jsx";
 import loader from "./images/WeatherIcons.gif";
 import ReactAnimatedWeather from "react-animated-weather";
 const dateBuilder = (d) => {
@@ -41,7 +41,7 @@ const defaults = {
   size: 112,
   animate: true,
 };
-class Weather extends React.Component {
+class CurrentLocation extends React.Component {
   state = {
     lat: undefined,
     lon: undefined,
@@ -86,15 +86,15 @@ class Weather extends React.Component {
     clearInterval(this.timerID);
   }
 
-  // tick = () => {
-  //   this.getPosition()
-  //   .then((position) => {
-  //     this.getWeather(position.coords.latitude, position.coords.longitude)
-  //   })
-  //   .catch((err) => {
-  //     this.setState({ errorMessage: err.message });
-  //   });
-  // }
+  tick = () => {
+    this.getPosition()
+      .then((position) => {
+        this.getWeather(position.coords.latitude, position.coords.longitude)
+      })
+      .catch((err) => {
+        this.setState({ errorMessage: err.message });
+      });
+  }
 
   getPosition = (options) => {
     return new Promise(function (resolve, reject) {
@@ -115,9 +115,7 @@ class Weather extends React.Component {
       humidity: data.main.humidity,
       main: data.weather[0].main,
       country: data.sys.country,
-      // sunrise: this.getTimeFromUnixTimeStamp(data.sys.sunrise),
 
-      // sunset: this.getTimeFromUnixTimeStamp(data.sys.sunset),
     });
     switch (this.state.main) {
       case "Haze":
@@ -187,7 +185,7 @@ class Weather extends React.Component {
               </div>
             </div>
           </div>
-          <Forcast1 icon={this.state.icon} weather={this.state.main} />
+          <Forcast icon={this.state.icon} weather={this.state.main} />
         </React.Fragment>
       );
     } else {
@@ -207,4 +205,4 @@ class Weather extends React.Component {
   }
 }
 
-export default Weather;
+export default CurrentLocation;
